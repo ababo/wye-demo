@@ -10,5 +10,6 @@ let base = import "../../base/schema.ncl" in
             kind = "aws-sg",
             config = import "provider/aws-sg.ncl"
         },
-    }
+    },
+    providers_concurrency = 32,
 } | base.Wye
