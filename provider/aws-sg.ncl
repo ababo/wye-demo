@@ -1,4 +1,4 @@
-let aws = import "../../../provider/aws/schema.ncl" in
+let aws_ec2 = import "../../../provider/aws-ec2/schema.ncl" in
 
 {
-} | aws.SgProvider
+} | aws_ec2.SgProvider
