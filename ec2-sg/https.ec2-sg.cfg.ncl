@@ -15,8 +15,8 @@ let aws_ec2 = import "../../../provider/aws-ec2/schema.ncl" in
             }
           }
         ],
-        from_port = 5432,
-        to_port = 5432,
+        from_port = 443,
+        to_port = 443,
       }
     }
   ],
@@ -24,4 +24,4 @@ let aws_ec2 = import "../../../provider/aws-ec2/schema.ncl" in
   tags = {
     "environment" = "production",
   }
-} | aws_ec2.SgConfig
+} | aws_ec2.SecurityGroupConfig

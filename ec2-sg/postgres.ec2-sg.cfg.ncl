@@ -1,8 +1,8 @@
 let aws_ec2 = import "../../../provider/aws-ec2/schema.ncl" in
 
 {
-  name = "ssh",
-  description = "SSH access",
+  name = "postgres",
+  description = "PostgreSQL access",
   vpc_id = "vpc-0a1b2c3d4e5f6a7b8",
   ingress = [
     {
@@ -15,8 +15,8 @@ let aws_ec2 = import "../../../provider/aws-ec2/schema.ncl" in
             }
           }
         ],
-        from_port = 22,
-        to_port = 22,
+        from_port = 5432,
+        to_port = 5432,
       }
     }
   ],
@@ -24,4 +24,4 @@ let aws_ec2 = import "../../../provider/aws-ec2/schema.ncl" in
   tags = {
     "environment" = "production",
   }
-} | aws_ec2.SgConfig
+} | aws_ec2.SecurityGroupConfig

@@ -2,13 +2,13 @@ let base = import "../../base/schema.ncl" in
 
 {
   providers = {
-    "aws-ec2" = {
-      kind = "aws-ec2",
-      config = import "provider/aws-ec2.ncl"
+    "ec2-inst" = {
+      kind = "ec2-inst",
+      config = import "provider/ec2-inst.ncl"
     },
-    "aws-sg" = {
-      kind = "aws-sg",
-      config = import "provider/aws-sg.ncl"
+    "ec2-sg" = {
+      kind = "ec2-sg",
+      config = import "provider/ec2-sg.ncl"
     },
   },
   providers_concurrency = 32,
