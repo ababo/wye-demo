@@ -1,7 +1,7 @@
 let aws_ec2 = import "../../../provider/aws-ec2/schema.ncl" in
 
-let ssh = import "ssh.ec2-sg.st.json" in
-let https = import "https.ec2-sg.st.json" in
+let ssh = import "ssh.ec2-sg.obs.json" in
+let https = import "https.ec2-sg.obs.json" in
 
 {
   description = "NIC for Web instance",

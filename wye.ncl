@@ -2,6 +2,10 @@ let base = import "../../base/schema.ncl" in
 
 {
   providers = {
+    "ec2-eni" = {
+      kind = "aws-ec2-eni",
+      config = import "provider/ec2-eni.ncl"
+    },
     "ec2-inst" = {
       kind = "aws-ec2-inst",
       config = import "provider/ec2-inst.ncl"
