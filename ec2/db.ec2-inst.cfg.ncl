@@ -7,6 +7,7 @@ let eni = import "db.ec2-eni.obs.json" in
   instance_type = '"t3.nano",
   is_stopped = false,
   key_name = "wye-poc",
+  iam_profile_arn = "arn:aws:iam::446826609862:instance-profile/wye-poc",
   metadata = {
     enforce_imdsv2 = false,
   },
