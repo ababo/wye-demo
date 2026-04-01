@@ -2,6 +2,10 @@ let base = import "../../base/schema.ncl" in
 
 {
   providers = {
+    "dkr-ctr" = {
+      kind = "dkr-ctr",
+      config = import "provider/dkr-ctr.ncl"
+    },
     "dkr-host" = {
       kind = "dkr-host",
       config = import "provider/dkr-host.ncl"

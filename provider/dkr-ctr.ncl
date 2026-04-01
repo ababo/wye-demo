@@ -10,4 +10,4 @@ let docker = import "../../../provider/docker/schema.ncl" in
     },
   },
   concurrency = 32,
-} | docker.HostProvider
+} | docker.ContainerProvider
