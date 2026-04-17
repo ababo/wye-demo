@@ -1,3 +1,4 @@
+*.cfgdiff.json
 .git*
 .wyeignore
-untracked/
+vault/

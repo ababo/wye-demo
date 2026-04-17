@@ -1,2 +1,4 @@
+*.cfgdiff.json
 *.obs.json
-untracked/
+env.ncl
+vault/

@@ -1,13 +1,14 @@
-let aws_ec2 = import "../../../provider/aws-ec2/schema.ncl" in
+let aws_ec2 = import "../../wye/provider/aws-ec2/schema.ncl" in
+
+let env = import "../env.ncl" in
 
 let eni = import "web.ec2-eni.obs.json" in
 
 {
-  ami_id = "ami-00bec3685736827e3",
+  ami_id = env.ami_id,
   instance_type = '"t3.nano",
   is_stopped = false,
-  key_name = "wye-poc",
-  iam_profile_arn = "arn:aws:iam::446826609862:instance-profile/wye-poc",
+  key_name = env.key_name,
   metadata = {
     enforce_imdsv2 = false,
   },

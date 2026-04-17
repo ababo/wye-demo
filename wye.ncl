@@ -1,4 +1,4 @@
-let base = import "../../base/schema.ncl" in
+let base = import "../wye/base/schema.ncl" in
 
 {
   providers = {

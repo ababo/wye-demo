@@ -1,11 +1,11 @@
-let docker = import "../../../provider/docker/schema.ncl" in
+let docker = import "../../wye/provider/docker/schema.ncl" in
 
 {
   transport = {
     ssh = {
       host_provider_id = "dkr-host",
       keys = {
-        "key" = { key_file = "../vault/wye-poc.pem" },
+        "key" = { key_file = "vault/ssh-key.pem" },
       },
     },
   },
