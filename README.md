@@ -73,7 +73,7 @@ The project root contains the following:
 	wye scan-sync -d
 	```
 
-	**Note**: You will find an `untracked/` directory containing `.obs.json` and `.cfgdiff.json` files. The latter detail the differences between your configuration and the actual state. In this example, the differences correspond to two boot EC2 volumes for the instances and a `default` security group.
+	**Note**: If any unknown resources are detected during the scan, an `untracked/` directory will be created containing `.obs.json` and `.cfgdiff.json` files. The latter detail the differences between your configuration and the actual state. Since no such resources were yet introduced, the `untracked/` directory is not present.
 
 11. **Simulate an issue** by stopping the `db` container. Extract the `primary_public_ipv4` from `ec2/db.ec2-inst.obs.json`, connect to the instance, and stop the `wiki-storage` container:
 
@@ -86,6 +86,7 @@ The project root contains the following:
 	```shell
 	wye scan-sync -d
 	```
+
 	**Note**: The command output will contain:
 	```text
 	WARN  base::registry::synchronize] detected non-empty config diff for docker/db.dkr-ctr
@@ -103,7 +104,33 @@ The project root contains the following:
 
 	**Note**: This command triggers a resource update. Wye detects that the `is_stopped` attribute differs from the expected state and issues a `docker start` command. After this, a subsequent scan should no longer show the warning.
 
-14. **Destroy the setup** to conclude the demo:
+14. **Add an untracked security group** into the current VPC:
+
+	```shell
+	aws ec2 create-security-group \
+	  --group-name external \
+	  --description "Untracked security group" \
+	  --region <your-region> \
+	  --vpc-id <your-vpc-id>
+	```
+
+15. **Run the scan again**:
+
+	```shell
+	wye scan-sync -d
+	```
+
+	**Note**: Now you can find corresponding `.cfgdiff.json` and `.obs.json` files in the `untracked/` directory.
+
+16. **Remove the untracked security group**:
+
+	```shell
+	aws ec2 delete-security-group \
+	  --group-id <untracked-group-id> \
+	  --region <your-region>
+	```
+
+17. **Destroy the setup** to conclude the demo:
 
 	```shell
 	rm ec2/*.cfg.ncl docker/*.cfg.ncl
