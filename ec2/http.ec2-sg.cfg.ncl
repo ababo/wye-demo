@@ -1,11 +1,11 @@
 let aws_ec2 = import "../../wye/provider/aws-ec2/schema.ncl" in
 
-let env = import "../env.ncl" in
+let env = import "../env.json" in
 
 {
   name = "http",
   description = "HTTP(S) access",
-  vpc_id = env.vpc_id,
+  vpc_id = env.vpc,
   ingress = [
     {
       tcp = {

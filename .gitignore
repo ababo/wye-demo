@@ -1,4 +1,4 @@
 *.cfgdiff.json
 *.obs.json
-env.ncl
+env.json
 vault/

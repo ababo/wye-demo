@@ -1,4 +1,5 @@
 *.cfgdiff.json
 .git*
 .wyeignore
+script/
 vault/
