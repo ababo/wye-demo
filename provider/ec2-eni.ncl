@@ -6,6 +6,7 @@ let env = import "../env.json" in
   ec2 = {
     region = env.region,
   },
+  vpc_id = env.vpc,
   cache_ephemeral_public_ipv4 = true,
   wait_secs = 60,
 } | aws_ec2.NetworkInterfaceProvider
